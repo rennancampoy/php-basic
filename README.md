@@ -1,1 +1,1 @@
-Projeto para reforço do básico de PHP - Rennan Eduardo Campoy
+Project to strengthen basic PHP notions - Rennan Eduardo Campoy
