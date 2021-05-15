@@ -1,9 +1,18 @@
-<!DOCTYPE html>
+<?php
 
-<body>
-	<?php
-	echo "Teste PHP";
-	?>
+class Person
+{
 
-	<h1>Teste HTML</h1>
-</body>
+	private $name;
+	private $age;
+
+	function __construct(string $name, int $age)
+	{
+		$this->name = $name;
+		$this->age = $age;
+	}
+}
+
+$person = new Person("Rennan", 26);
+
+var_dump($person);
