@@ -44,7 +44,7 @@ class Database
 			return $statement;
 		} catch (PDOException $e) {
 			die('Error: ' . $e->getMessage());
-		}	
+		}
 	}
 
 	public function insert($values)
@@ -59,10 +59,10 @@ class Database
 		return $this->connection->lastInsertId();
 	}
 
-	public function selectAll()
+	public function selectAll($class)
 	{
 		$query = 'SELECT * FROM ' . $this->table;
 
-		return $this->execute($query)->fetchAll();
+		return $this->execute($query)->fetchAll(PDO::FETCH_CLASS, $class);
 	}
 }

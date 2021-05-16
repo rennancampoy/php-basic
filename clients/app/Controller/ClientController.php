@@ -25,12 +25,6 @@ class ClientController
 
 	public function getClients()
 	{
-		$clientsFromDb = $this->db->selectAll();
-
-		foreach ($clientsFromDb as $client) {
-			$clientList[] = new Client($client['name'], $client['age'], $client['email'], $client['id']);
-		}
-
-		return $clientList;
+		return $this->db->selectAll(Client::class);
 	}
 }
