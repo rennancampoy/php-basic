@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use App\Database\Database;
-
 class Client
 {
 	private $id;
@@ -21,17 +19,5 @@ class Client
 	public function getProp(string $propName)
 	{
 		return $this->$propName;
-	}
-
-	public function register()
-	{
-		$objDatabase = new Database('client');
-		$this->id = $objDatabase->insert([
-			'name' => $this->name,
-			'age' => $this->age,
-			'email' => $this->email
-		]);
-
-		echo $this->id;
 	}
 }
