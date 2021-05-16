@@ -21,9 +21,4 @@ class Client
 	{
 		return $this->$propName;
 	}
-
-	public function setProp(string $propName)
-	{
-		$this->$propName = $propName;
-	}
 }
