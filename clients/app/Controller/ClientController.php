@@ -23,7 +23,12 @@ class ClientController
 		]);
 	}
 
-	public function getClients()
+	public function getClient($id)
+	{
+		return $this->db->select($id, Client::class);
+	}
+
+	public function getAllClients()
 	{
 		return $this->db->selectAll(Client::class);
 	}
@@ -31,5 +36,17 @@ class ClientController
 	public function deleteClient($id)
 	{
 		$this->db->delete($id);
+	}
+
+	public function updateClient(Client $client)
+	{
+		$this->db->update(
+			[
+				'name' => $client->getProp('name'),
+				'age' => $client->getProp('age'),
+				'email' => $client->getProp('email')
+			],
+			$client->getProp('id')
+		);
 	}
 }

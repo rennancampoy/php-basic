@@ -66,6 +66,20 @@ class Database
 		$this->execute($query);
 	}
 
+	public function update($values, $id)
+	{
+		$query = 'UPDATE ' . $this->table . ' SET ' . implode('=?, ', array_keys($values)) . ' = ? WHERE id = ' . $id;
+
+		$this->execute($query, array_values($values));
+	}
+
+	public function select($id, $class)
+	{
+		$query = 'SELECT * FROM ' . $this->table . ' WHERE id = ' . $id;
+
+		return $this->execute($query)->fetchObject($class);
+	}
+
 	public function selectAll($class)
 	{
 		$query = 'SELECT * FROM ' . $this->table;
