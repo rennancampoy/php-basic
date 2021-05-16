@@ -58,4 +58,11 @@ class Database
 
 		return $this->connection->lastInsertId();
 	}
+
+	public function selectAll()
+	{
+		$query = 'SELECT * FROM ' . $this->table;
+
+		return $this->execute($query)->fetchAll();
+	}
 }

@@ -9,8 +9,9 @@ class Client
 	private $age;
 	private $email;
 
-	function __construct(string $name, int $age, string $email)
+	function __construct(string $name, int $age, string $email, int $id = 0)
 	{
+		$this->id = $id;
 		$this->name = $name;
 		$this->age = $age;
 		$this->email = $email;
@@ -19,5 +20,10 @@ class Client
 	public function getProp(string $propName)
 	{
 		return $this->$propName;
+	}
+
+	public function setProp(string $propName)
+	{
+		$this->$propName = $propName;
 	}
 }

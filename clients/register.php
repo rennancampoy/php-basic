@@ -7,7 +7,8 @@ use App\Entity\Client;
 
 if (isset($_POST['name'], $_POST['age'], $_POST['email'])) {
 	$newClient = new Client($_POST['name'], $_POST['age'], $_POST['email']);
-	ClientController::registerClient($newClient);
+	$clientController = new ClientController();
+	$clientController->registerClient($newClient);
 
 	header('location: index.php?status=success');
 	exit;
