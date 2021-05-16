@@ -2,26 +2,13 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-print_r($_POST);	
+use App\Entity\Client;
+
+if (isset($_POST['name'], $_POST['age'], $_POST['email'])) {
+	$newClient = new Client($_POST['name'], $_POST['age'], $_POST['email']);
+	var_dump($newClient);
+}
 
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/form.php';
 include __DIR__.'/includes/footer.php';
-
-class Person
-{
-
-	private $name;
-	private $age;
-
-	function __construct(string $name, int $age)
-	{
-		$this->name = $name;
-		$this->age = $age;
-	}
-
-	function getProp(string $propName)
-	{
-		return $this->$propName;
-	}
-}
