@@ -59,6 +59,13 @@ class Database
 		return $this->connection->lastInsertId();
 	}
 
+	public function delete($id)
+	{
+		$query = 'DELETE FROM ' . $this->table . ' WHERE id = ' . $id;
+		
+		$this->execute($query);
+	}
+
 	public function selectAll($class)
 	{
 		$query = 'SELECT * FROM ' . $this->table;

@@ -27,4 +27,9 @@ class ClientController
 	{
 		return $this->db->selectAll(Client::class);
 	}
+
+	public function deleteClient($id)
+	{
+		$this->db->delete($id);
+	}
 }
